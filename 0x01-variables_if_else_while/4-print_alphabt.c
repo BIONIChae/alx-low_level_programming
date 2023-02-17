@@ -2,23 +2,19 @@
 #include <ctype.h>
 
 /**
- * main - print letters in lowercase, except q and e
+ *main - print letters, except q and e
  *
- * Return: 0 if successful
+ *Return: 0 is successful
  */
 int main(void)
 {
-	char letter;
+	char x;
 
-	for (letter = 'a'; letter <= 'z'; letter++)
-		if (letter == 'q' && letter == 'e')
-		{
-			continue;
-		}
-		else
-		{
-			putchar(letter);
-		}
+	for (x = 'a'; x <= 'z'; x++)
+	{
+		if (x != 'q' && x != 'e')
+			putchar(x);
+	}
 	putchar('\n');
 	return (0);
 }
