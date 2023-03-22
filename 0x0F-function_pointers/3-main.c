@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, n1, n2;
+	int n1, n2, i;
 	int (*func)(int, int);
 
 	if (argc != 4)
