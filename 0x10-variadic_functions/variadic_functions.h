@@ -2,7 +2,7 @@
 #define VARIADIC_FUNCTIONS_H
 #include <stdarg.h>
 
-/*
+/**
  * struct print - Defines a printer.
  * @d_type: The data type.
  * @func: The function pointer to a function that prints @d_type.
