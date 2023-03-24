@@ -64,31 +64,32 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i = 0, j = 0;
 	char *separator = "";
-
-	print_t func[] = {
+	print_t struc[] = {
 		{"c", print_char},
-		{"s", print_string},
 		{"i", print_int},
-		{"f", print_float}
+		{"f", print_float},
+		{"s", print_string}
 	};
 
 	va_start(args, format);
 
-	while (format && format[i])
+	while (format && (*(format + i)))
 	{
-		while (func[j].d_type != NULL)
-		{
-			if (*(func[j].d_type) == format[i])
-			{
-				printf("%s", separator);
-				func[j].func(args);
-				separator = ", ";
-				break;
-			}
+		j = 0;
+
+		while (j < 4 && (*(format + i) != *(struc[j].d_type)))
 			j++;
+
+		if (j < 4)
+		{
+			printf("%s", separator);
+			struc[j].func(args);
+			separator = ", ";
 		}
+
 		i++;
 	}
+
 	printf("\n");
 
 	va_end(args);
