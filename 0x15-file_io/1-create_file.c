@@ -24,8 +24,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		for (length = 0; text_content[length]; length++)
-			;
+		for (length = 0; text_content[length];)
+			length++;
 	}
 
 	close(file);
