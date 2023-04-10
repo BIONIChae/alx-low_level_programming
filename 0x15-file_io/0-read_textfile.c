@@ -24,21 +24,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	if (buff == NULL)
-	{
-		close(file);
 		return (0);
-	}
 
 	if (r_file == -1)
-	{
-		free(buff);
-		close(file);
 		return (0);
-	}
-	free(buff);
-	close(file);
 
 	if (w_file != r_file)
 		return (0);
+
 	return (w_file);
+	free(buff);
+	close(file);
 }
