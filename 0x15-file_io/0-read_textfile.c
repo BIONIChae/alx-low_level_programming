@@ -9,26 +9,26 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *the_file = open(filename, "r");
+	int the_file = open(filename, O_RDONLY);
 	char *buf = malloc(1 + letters);
 	ssize_t r_file = read(the_file, buf, letters);
 	ssize_t w_file = write(STDOUT_FILENO, buf, r_file);
 
-	if (the_file == NULL)
+	if (the_file == -1)
 		return (0);
-	if (filename == NULL);
+	if (filename == NULL)
 		return (0);
 	if (buf == NULL)
 	{
 		close(the_file);
 		return (0);
 	}
-	if (r_file == NULL)
-	}
+	if (r_file == -1)
+	{
 		free(buf);
 		return (0);
 	}
-	if (w_file != r_file || w_file == NULL)
+	if (w_file != r_file || w_file == -1)
 	{
 		free(buf);
 		close(the_file);
